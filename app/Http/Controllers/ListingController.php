@@ -40,13 +40,11 @@ class ListingController extends Controller
         ]);
 
         if($request->hasFile('logo')) {
-            // $formFields['logo'] = $request->file('logo')->store('logos', 'public');
-            $formFields['logo'] = 'fuck you';
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
  
         Listing::create($formFields);
-        dd($formFields);
-        // return redirect('/')->with('message', 'Listing created succesfully!');
+        return redirect('/')->with('message', 'Listing created succesfully!');
     }
 
     // // Show edit form
